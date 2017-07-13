@@ -1,0 +1,23 @@
+{% load taggit_templatetags2_tags %}
+		<div class="well">
+                    <h4>About this site</h4>
+                    <p>This site is running Python 3.4.4 and the LTS version of Django.</p>
+                </div>
+                <div class="well">
+                        <h4>Tag Cloud</h4>
+                        {% get_tagcloud as tags %}
+                        {% for tag in tags %}
+                        <a href="/tag/{{ tag.slug }}.html"><font size={{tag.weight|floatformat:0}}>{{ tag }}</font></a>
+                        {% endfor %}
+                </div>
+
+	    <div class="well">
+                    <h4>Social Links</h4>
+			<p><a href="https://github.com/">GitHub</a></p>
+                </div>
+		
+		<div class="well">
+                    <h4>Recommend</h4>
+			<p><a href="https://mintshost.pl/start/?ref=239704">Mintshost</a></p>
+                        <p><a href="https://panel.sldc.eu/aff.php?aff=228">Śląsk Data Center</a></p>
+                </div>

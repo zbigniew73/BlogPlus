@@ -1,0 +1,16 @@
+{% extends "blog/base2.html" %}
+{% block content %}
+<h2 class="post-title">{{ object.name }}</h2>
+<p>{{ object.description }}</p>
+{% for foto in object.foto_set.all %}
+<p>{{ photo.title }}</p>
+<a href="{{ foto.get_absolute_url }}">
+<img class="img-responsive" src="{{ foto.image.thumb_url }}"></a>
+<p>{{ photo.caption }}</p>
+{% endfor %}
+<ul class="pager">
+<li class="next">
+<a href="{% url 'galeria_list'  %}">Lista Galerii &rarr;</a>
+</li>
+</ul>
+{% endblock %}

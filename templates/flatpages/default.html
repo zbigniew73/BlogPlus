@@ -1,0 +1,6 @@
+{% extends "blog/base2.html" %}
+{% load custom_markdown %}
+{% block content %}
+<h2 class="post-title">{{ flatpage.title }}</h2><hr>
+<p>{{ flatpage.content|custom_markdown }}</p>
+{% endblock %}

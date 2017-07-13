@@ -1,0 +1,16 @@
+{% extends "blog/base2.html" %}
+{% block content %}
+<a href="{{ object.galeria.get_absolute_url }}">
+<h2 class="post-title">
+{{ object.galeria.name }}</h2></a>
+<p>{{ object.galeria.name }} - {{ object.title }}</p>
+<img class="img-responsive" src="{{ object.image.url}}">
+{% if object.caption %}
+<p>{{ object.caption }}</p>
+{% endif %}
+<ul class="pager">
+<li class="next">
+<a href="{% url 'galeria_list'  %}">Lista Galerii &rarr;</a>
+</li>
+</ul>
+{% endblock %}

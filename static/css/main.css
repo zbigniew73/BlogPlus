@@ -1,0 +1,7 @@
+div.codehilite pre {
+    background: #002b36;
+    margin: 0 0 0 0;
+    overflow: auto;
+    word-wrap: normal;
+    white-space: pre;
+}

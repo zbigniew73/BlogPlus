@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+{% load custom_markdown %}
+{% block content %}
+        <h2 class="post-title">{{ object.title }}</h2>
+	<p class="post-meta">Posted on {{ post.pub_date|date:"M d, Y" }}&nbsp;
+            &nbsp;Tag :&nbsp;
+            {% if object.tags %}
+            {% for tag in object.tags.all %}
+            <a href="/tag/{{ tag.slug }}.html">{{ tag.name }}</a>
+            {% endfor %}
+	    {% endif %}	
+        </p>
+	<p>
+	{% if object.image %}
+                  <img class="img-responsive" src="{{ object.image.url }}"/>
+	{% endif %}
+	</p>
+        {{ object.text|custom_markdown|linebreaks }}
+	<p><div class="fb-like" data-href="https://{{ object.site }}{{ object.get_absolute_url }}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div></p>
+	<hr>
+	<h2 class="post-title">Komentarze</h3><hr>
+        <div class="fb-comments" data-href="http://{{ object.site }}{{ object.get_absolute_url }}" data-width="470" data-num-posts="10"></div>
+
+{% endblock %}
